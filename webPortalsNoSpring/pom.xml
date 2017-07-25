@@ -1,0 +1,77 @@
+﻿<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>webPortals</artifactId>
+  <packaging>war</packaging>
+  <name>webPortals Maven Webapp</name>
+  <parent>
+      <groupId>lfp</groupId>
+      <artifactId>project</artifactId>
+      <version>1.0</version>
+   </parent>
+  <url>http://maven.apache.org</url>
+   <properties>
+         <org.springframework.version>4.1.3.RELEASE</org.springframework.version>
+        <struts2.version>2.3.28.1</struts2.version>
+        <log4j.version>2.0</log4j.version>
+        <mysql.jdbc.version>5.1.21</mysql.jdbc.version>
+        <hibernate.version>4.1.0.Final</hibernate.version>
+         <commons.fileupload.version>1.2.1</commons.fileupload.version>
+        <javassist.version>3.12.1.GA</javassist.version>
+         <cxf.version>3.0.2</cxf.version>
+    </properties>
+  
+  <dependencies>
+   	<dependency>
+         <groupId>mysql</groupId>
+         <artifactId>mysql-connector-java</artifactId>
+         <version>${mysql.jdbc.version}</version>
+     </dependency>
+     
+     
+ 		<!-- Struts2- 依赖 -->
+  	
+     <dependency>
+             <groupId>org.apache.struts</groupId>
+             <artifactId>struts2-core</artifactId>
+             <version>${struts2.version}</version>
+     </dependency>
+ 	 <dependency>
+  		<groupId>org.mortbay.jetty</groupId>
+  		<artifactId>servlet-api</artifactId>
+  		<version>3.0.pre4</version>
+  		<scope> provided</scope>
+  	</dependency>
+    <!-- ejb 接口定义注解依赖 -->
+    <dependency>
+			<groupId>org.jboss.spec.javax.ejb</groupId>
+			<artifactId>jboss-ejb-api_3.1_spec</artifactId>
+	</dependency>
+	<!-- webservice client dependency -->
+  </dependencies>
+  <build>
+    <finalName>webPortals</finalName>
+    <resources>
+    	<resource>
+    		<directory>src/main/java</directory>
+    		<includes>
+    			<include>**/*.xml</include>
+    		</includes>
+    	</resource>
+    	<resource>
+    		<directory>src/main/resources</directory>
+    	</resource>
+    </resources>
+    <plugins>
+		
+		<plugin>
+    		<groupId>org.mortbay.jetty</groupId>
+    		<artifactId>maven-jetty-plugin</artifactId>
+    		<version>6.1.26</version>
+    		<configuration>
+    		<webApp>${project.build.directory}/webPortals.war</webApp>
+    		</configuration>
+    	</plugin>
+    </plugins>
+  </build>
+</project>

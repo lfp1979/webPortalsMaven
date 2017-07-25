@@ -1,0 +1,45 @@
+<project>
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>lfp</groupId>
+   <artifactId>webPortalsEjb</artifactId>
+   <packaging>ejb</packaging>
+   <version>1.0</version>
+   <name>enterprise java beans</name>
+   <properties>
+   		     <hibernate.version>4.1.0.Final</hibernate.version>
+   </properties>
+   <parent>
+      <groupId>lfp</groupId>
+      <artifactId>project</artifactId>
+      <version>1.0</version>
+   </parent>
+   <dependencies>
+   	 <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+            <scope>provided</scope>
+            
+      </dependency>
+      <dependency>
+			<groupId>org.jboss.spec.javax.ejb</groupId>
+			<artifactId>jboss-ejb-api_3.1_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+   </dependencies>
+   <build>
+      <plugins>
+			<plugin>
+            <artifactId>maven-ejb-plugin</artifactId>
+            <configuration>
+            	<ejbVersion>3.0</ejbVersion>
+               <archive>
+                  <manifest>
+                     <addClasspath>true</addClasspath>
+                  </manifest>
+               </archive> 
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+</project>
